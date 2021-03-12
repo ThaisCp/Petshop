@@ -12,67 +12,50 @@
 //*/
 
 Route::get('/', function () {
-    return view('site.home');
-})->name('site.home');
+    return view('welcome');
+});
+
+//Rota do cadastro de imoveis
+Route::get('/imoveis', 'PropertyController@index');
+Route::get('/imoveis/novo', 'PropertyController@create');
+
+Route::post('/imoveis/store', 'PropertyController@store');
+Route::get('/imoveis/{name}', 'PropertyController@show');
+
+Route::post('/imoveis/editar/{name}', 'PropertyController@edit');
+Route::put('/imoveis/update/{name}', 'PropertyController@update');
 
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/site', 'AuthController@home')->name('site');
-Route::get('/site/login', 'AuthController@home')->name('site.login');
-Route::get('/site/logout', 'AuthController@home')->name('site.logout');
-Route::post('/site/login/do', 'AuthController@home')->name('site.login.do');
-
-//Route::get('/site/cadastroCleite', 'ClienteController@cadastroCleite')->name('site.cadastroCleite');
-
-//Cliente
-Route::get('/cliente', function () {
-    return view('site.cliente');
-})->name('site.cliente');
-
-Route::get('/cadastroCliente', function () {
-    return view('site.cadastroCliente');
-})->name('site.cadastroCliente');
-
-//Agenda
-Route::get('/agenda', function () {
-    return view('site.agenda');
-})->name('site.agenda');
-
-//Estoque de Produtos
-Route::get('/estoque', function () {
-    return view('site.estoque');
-})->name('site.estoque');
-
-Route::get('/cadastroEstoque', function () {
-    return view('site.cadastroEstoque');
-})->name('site.cadastroEstoque');
-
-Route::get('/fornecedor', function () {
-    return view('site.fornecedor');
-})->name('site.fornecedor');
 
 
-//Contatos
-Route::get('/contato', function () {
-    return view('site.contato');
-})->name('site.contato');
+//cadastro de Cliente
+Route::get('/cliente', 'ClienteController@index');
+Route::get('/cleinte/novo', 'ClienteController@create');
+Route::post('/cliente/store', 'ClienteController@store');
+
+
+//cadastro de Fornecedor
+Route::get('/fornecedor', 'FornecedorController@index');
+Route::get('/fornecedor/novo', 'FornecedorController@create');
+Route::post('/fornecedor/store', 'FornecedorController@store');
+
+//cadastro de Produto
+Route::get('/produto', 'ProdutoController@index');
+Route::get('/produto/novo', 'ProdutoController@create');
+Route::post('/produto/store', 'ProdutoController@store');
+
+
+//cadastro Contas a Pagar
+Route::get('/contasPagar', 'ContasPagarController@index');
+Route::get('/contasPagar/novo', 'ContasPagarController@create');
+Route::post('/contasPagar/store', 'ContasPagarController@store');
+
+//cadastro Contas a Receber
+Route::get('/contasReceber', 'ContasReceberController@index');
+Route::get('/contasReceber/novo', 'ContasReceberController@create');
+Route::post('/contasReceber/store', 'ContasReceberController@store');
 
 //Relatorios
-Route::get('/relatorio', function () {
-    return view('site.relatorio');
-})->name('site.relatorio');
-
-
-//Financeiro
-Route::get('/financeiro', function () {
-    return view('site.financeiro');
-})->name('site.financeiro');
-
-
-//Configuração
-Route::get('/configuracao', function () {
-    return view('site.configuracao');
-})->name('site.configuracao');
+Route::get('/produto', 'ProdutoController@index');
+Route::get('/produto/novo', 'ProdutoController@create');
+Route::post('/produto/store', 'ProdutoController@store');

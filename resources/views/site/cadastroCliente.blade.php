@@ -13,7 +13,7 @@
     <div class="container  py-5">
         <form class="needs-validation" novalidate>
 
-            {{--            //Nomes--}}
+            {{--            //DADOS CLIENTE--}}
             <div class="form-row">
                 <div class="   col-md-5 offset-md-1">
                     <label for="validationCustom01">Nome</label> <span id="obrigatorio">*</span>
